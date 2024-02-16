@@ -9,6 +9,13 @@ const Formulario = ({paciente, setPaciente}) => {
   const [alta, setAlta] = useState("")
   const [sintomas, setSintomas] = useState("")
 
+  const generarId = () => {
+    const random = Math.random().toString(36).substr(2)
+    const fecha = Date.now().toString(36)
+
+    return random + fecha
+  }
+
   // VALIDACION DE LOS CAMPOS
   const [error, setError] = useState(false)
 
@@ -28,7 +35,8 @@ const Formulario = ({paciente, setPaciente}) => {
       propietario, 
       email, 
       alta, 
-      sintomas
+      sintomas,
+      id: generarId()
     }
     // COPIA EL ARREGLO Y LE AGREGA EL NUEVO OBJETO
     setPaciente([...paciente, objtetoPaciente])
