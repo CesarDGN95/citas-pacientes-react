@@ -1,7 +1,16 @@
 
-const Paciente = ({paciente}) => {
+const Paciente = ({paciente, setPacient, eliminarPaciente}) => {
   // DESTRUCTURING PARA UTILIZAR LAS VARIABLES
-  const {nombre, propietario, email, alta, sintomas} = paciente
+  const {nombre, propietario, email, alta, sintomas, id} = paciente
+
+  const handlerEliminar = () => {
+    const respuesta = confirm("Desear eliminarlo?")
+
+    if(respuesta) {
+      eliminarPaciente(id)
+    }
+    
+  }
 
   return (
     <div className="mx-5 mb-3 bg-white shadow-md px-5 py-10 rounded-xl">
@@ -29,6 +38,24 @@ const Paciente = ({paciente}) => {
             Sintomas: {" "}
             <span className="font-normal normal-case">{sintomas}</span>
           </p>
+
+          <div className="flex justify-between mt-10">
+            <button
+            type="button"
+              className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
+              onClick={() => setPacient(paciente)}
+            >
+              Editar
+            </button>
+
+            <button
+              type="button"
+              className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg"
+              onClick={handlerEliminar}
+            >
+              Eliminar
+            </button>
+          </div>
         </div>
   )
 }
