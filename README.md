@@ -1,4 +1,4 @@
-# React + Vite
+# React + Vite + TailwindCSS + Localstorage
 
 ![image](https://github.com/CesarDGN95/citas-pacientes-react/assets/129010526/1bcb9f05-429c-4854-abfb-614edfbce12e)
 
